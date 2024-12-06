@@ -34,6 +34,10 @@ context.translate(window.innerWidth / 2, window.innerHeight / 2);
 
 const image = new Image();
 image.src = "./pug.png";
+
+const image_btc = new Image();
+image_btc.src = "./bitcoin.png";
+
 const loopingPugs = 40;
 const offsetDistance = 200;
 let currentOffset = 0;
@@ -66,6 +70,16 @@ window.addEventListener('mousemove', onMouseMove)
 function draw(offset, loopCount) {
 
   let currentPercentage = (loopingPugs - loopCount) / loopingPugs
+  
+  context.drawImage(
+    image_btc,
+    -image_btc.width * 2.1 / 2,  // Adjust the position as needed
+    -image_btc.height * 2.1 / 1.15, // Adjust the position as needed
+    image_btc.width *2.1,
+    image_btc.height *2.1,
+    );
+
+  
   context.drawImage(
     image,
     -pugDimensions.width / 2 - offset/2 + (movementOffset.x * currentPercentage),
